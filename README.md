@@ -1,23 +1,32 @@
-# Advanced Premium Registration Form
+✨ Advanced Registration Form
 
-A premium, responsive multi-step registration form built with HTML, CSS and JavaScript.
+A modern and responsive registration form that I created using HTML, CSS and JavaScript.
+I wanted to make it more interesting than a normal registration form, so I added multiple steps, validation, profile photo preview and a review section.
 
-### Features
-- Premium light theme
-- Red + purple modern UI
-- Multi-step registration
-- Personal information
-- Account type selection
-- Password strength meter
-- Show / hide password
-- Skills and interests
-- Profile photo preview
-- Form validation
-- Review before submission
-- Animated success screen
-- Mobile and desktop responsive
+The design is kept clean with a light theme and red-purple color combination, along with smooth transitions and responsive layout for both desktop and mobile.
 
-### Run
-Open `index.html` in any modern browser.
+🌟 Features
+🔹 Multi-step registration process
+👤 Personal information section
+💼 Account type selection
+🔐 Password show/hide option
+📊 Password strength indicator
+🎯 Skills and interests selection
+🖼️ Profile photo upload with preview
+✅ Form validation
+📋 Review details before submission
+🎉 Registration success screen
+📱 Responsive design
+✨ Clean and modern user interface
+🎨 Light theme with red and purple design
+🔄 How It Works
 
-This is a front-end demo, so it does not require a backend or database.
+The form is divided into different steps.
+
+First, the user enters their personal information. After that, they can select an account type and create their password.
+
+In the next step, users can select their skills and interests and upload a profile photo.
+
+Before submitting, all the entered information is displayed on a review page, where the user can check the details.
+
+After completing the form, a registration success screen is shown.
