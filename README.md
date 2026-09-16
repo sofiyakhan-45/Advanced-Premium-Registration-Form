@@ -1,4 +1,4 @@
-✨ Advanced Registration Form
+✨ Registration Form
 
 A modern and responsive registration form that I created using HTML, CSS and JavaScript.
 I wanted to make it more interesting than a normal registration form, so I added multiple steps, validation, profile photo preview and a review section.
