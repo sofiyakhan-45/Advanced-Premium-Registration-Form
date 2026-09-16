@@ -2,63 +2,1060 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>NovaForm — Premium Registration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaForm - Advanced Registration</title>
+
 <style>
-:root{--r:#e93658;--r2:#ff6b86;--p:#7658ff;--ink:#172033;--muted:#74809a;--line:#e7eaf2;--bg:#f7f8fc}
-*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(circle at 8% 8%,#ffe8ee,transparent 28%),radial-gradient(circle at 92% 18%,#eee9ff,transparent 30%),linear-gradient(135deg,#fff,var(--bg),#fff)}
-.shell{width:min(1080px,94%);margin:42px auto}.card{background:#fffffff2;backdrop-filter:blur(18px);border:1px solid #fff;border-radius:30px;box-shadow:0 24px 70px #1f2a461f;overflow:hidden}
-.top{padding:34px 40px 25px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:14px}.logo{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:22px;background:linear-gradient(135deg,var(--r),var(--p));box-shadow:0 10px 25px #7658ff33}.brand h1{font-size:20px;margin:0}.brand p{margin:4px 0 0;color:var(--muted);font-size:12px}
-.progress{display:flex;align-items:center;margin-top:30px}.step{display:flex;align-items:center;gap:9px;color:#9aa3b5;font-size:13px;font-weight:700;white-space:nowrap}.circle{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#f0f2f7;border:1px solid #e1e5ed;font-size:12px}.step.active{color:var(--ink)}.step.active .circle{color:#fff;border:0;background:linear-gradient(135deg,var(--r),var(--p))}.step.done .circle{color:#fff;border:0;background:#232b3e}.line{height:2px;background:#e8eaf0;flex:1;margin:0 12px}.line.active{background:linear-gradient(90deg,var(--r),var(--p))}
-.content{padding:38px 40px 42px}.page{display:none;animation:in .35s ease}.page.active{display:block}@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}h2{font-size:30px;margin:0 0 8px;letter-spacing:-.7px}.heading p{margin:0 0 28px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.full{grid-column:1/-1}label{display:block;font-size:13px;font-weight:800;margin:0 0 8px}input,select,textarea{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);outline:none;font-size:14px;transition:.2s}input:focus,select:focus,textarea:focus{border-color:var(--p);box-shadow:0 0 0 4px #7658ff14}textarea{min-height:105px;resize:vertical}.error{font-size:11px;color:#d52f4f;margin-top:5px;min-height:13px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:24px}.choice{border:1px solid var(--line);padding:17px;border-radius:15px;cursor:pointer;background:#fff;transition:.2s}.choice:hover{transform:translateY(-2px);box-shadow:0 10px 24px #1f2a4612}.choice.selected{border-color:var(--r);box-shadow:0 0 0 3px #e9365817}.choice b{display:block;margin-bottom:5px}.choice span{font-size:11px;color:var(--muted)}
-.password{position:relative}.password input{padding-right:52px}.toggle{position:absolute;right:10px;top:9px;border:0!important;background:#f4f5f9!important;color:var(--ink)!important;padding:8px 10px!important;box-shadow:none!important}.strength{height:6px;background:#eceef4;border-radius:20px;overflow:hidden;margin-top:8px}.strength i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--r),var(--p));transition:.25s}
-.skills{display:flex;flex-wrap:wrap;gap:10px}.skill{padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:12px;font-weight:750;cursor:pointer}.skill.selected{background:#fff0f3;border-color:#ff9ab0;color:#c72849}.upload{border:1.5px dashed #ccd2df;border-radius:18px;padding:22px;text-align:center;background:#fafbfe;cursor:pointer}.upload img{width:76px;height:76px;object-fit:cover;border-radius:50%;display:none;margin:0 auto 10px}.upload strong{display:block;font-size:13px}.upload span{color:var(--muted);font-size:11px}.terms{display:flex;gap:9px;align-items:flex-start;font-size:12px;color:var(--muted);margin-top:16px}.terms input{width:auto;margin-top:2px}
-.actions{display:flex;justify-content:space-between;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}button{border:0;border-radius:13px;padding:13px 20px;font-weight:800;cursor:pointer;font-size:13px;transition:.2s}button:hover{transform:translateY(-1px)}.secondary{background:#f0f2f6;color:#333c50}.primary{color:#fff;background:linear-gradient(135deg,var(--r),var(--p));box-shadow:0 12px 25px #7658ff2e}
-.review{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.review-item{padding:15px;border:1px solid var(--line);border-radius:14px;background:#fafbfe}.review-item small{color:var(--muted);display:block;margin-bottom:5px}.review-item b{font-size:13px;word-break:break-word}
-.success{text-align:center;padding:30px 10px}.tick{width:78px;height:78px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;color:#fff;font-size:35px;background:linear-gradient(135deg,var(--r),var(--p));box-shadow:0 16px 35px #7658ff33;animation:pop .5s ease}@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}.success h2{font-size:30px;margin:0 0 8px}.success p{color:var(--muted);max-width:520px;margin:0 auto 24px}
-@media(max-width:720px){.shell{margin:18px auto}.top{padding:25px 20px 20px}.content{padding:28px 20px}.grid,.review{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.progress{gap:5px}.step span{display:none}.line{margin:0 5px}h2{font-size:25px}.actions{gap:10px}.actions button{flex:1}}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Segoe UI,Arial,sans-serif;
+    min-height:100vh;
+    padding:30px;
+    background:#f4f7fb;
+    color:#182033;
+}
+
+/* Background */
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.15;
+    z-index:-1;
+}
+
+body::before{
+    background:#ff3158;
+    top:-150px;
+    left:-100px;
+}
+
+body::after{
+    background:#7657ff;
+    right:-130px;
+    bottom:-150px;
+}
+
+.container{
+    max-width:1050px;
+    margin:auto;
+}
+
+.card{
+    background:rgba(255,255,255,.94);
+    border:1px solid #e1e5ed;
+    border-radius:28px;
+    box-shadow:0 25px 70px rgba(30,40,70,.14);
+    overflow:hidden;
+}
+
+/* Header */
+
+.header{
+    padding:28px 38px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #e7eaf0;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#ff3158;
+}
+
+.badge{
+    border:1px solid #dfe3eb;
+    color:#697188;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:600;
+}
+
+/* Content */
+
+.content{
+    padding:38px;
+}
+
+h1{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#6d7488;
+    margin-bottom:28px;
+}
+
+/* Progress */
+
+.progress{
+    width:100%;
+    height:7px;
+    background:#e7eaf1;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#ff1744,#7657ff);
+    transition:.3s;
+}
+
+/* Form */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:#424a5e;
+    margin-bottom:8px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:14px 15px;
+    border:1px solid #d9dde7;
+    border-radius:13px;
+    background:#fff;
+    color:#182033;
+    font-size:14px;
+    outline:none;
+    transition:.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#ff3158;
+    box-shadow:0 0 0 4px rgba(255,49,88,.1);
+}
+
+textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#a0a6b5;
+}
+
+/* Password */
+
+.password-box{
+    position:relative;
+}
+
+.password-box button{
+    position:absolute;
+    right:7px;
+    top:7px;
+    border:0;
+    background:#eef1f6;
+    color:#41495e;
+    padding:8px 11px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+/* Skills */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
+    display:flex!important;
+    align-items:center;
+    gap:7px;
+    width:auto!important;
+    margin:0!important;
+    padding:11px 14px;
+    border:1px solid #d9dde7;
+    border-radius:12px;
+    background:white;
+    cursor:pointer;
+    font-weight:500!important;
+    transition:.2s;
+}
+
+.skill:hover{
+    border-color:#ff3158;
+    transform:translateY(-2px);
+}
+
+.skill input{
+    width:auto;
+}
+
+/* Upload */
+
+.upload{
+    padding:22px;
+    border:1px dashed #b8bfce;
+    border-radius:15px;
+    background:#fafbfc;
+    text-align:center;
+}
+
+/* Error */
+
+.error{
+    display:none;
+    color:#e11d48;
+    font-size:12px;
+    margin-top:6px;
+}
+
+/* Terms */
+
+.terms{
+    display:flex!important;
+    align-items:flex-start;
+    gap:8px;
+    padding:13px;
+    border:1px solid #e0e4ec;
+    border-radius:12px;
+    background:#fafbfc;
+    cursor:pointer;
+}
+
+.terms input{
+    width:auto;
+    margin-top:3px;
+}
+
+/* Buttons */
+
+.buttons{
+    display:flex;
+    gap:12px;
+    margin-top:28px;
+}
+
+button{
+    font-family:inherit;
+}
+
+.reset-btn{
+    border:0;
+    background:#eef0f5;
+    color:#424a60;
+    padding:14px 22px;
+    border-radius:13px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.submit-btn{
+    flex:1;
+    border:0;
+    background:linear-gradient(90deg,#ff1744,#ff4269);
+    color:white;
+    padding:14px 22px;
+    border-radius:13px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(255,49,88,.22);
+    transition:.2s;
+}
+
+.submit-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Success */
+
+.success{
+    display:none;
+    text-align:center;
+    padding:55px 25px;
+}
+
+.success-icon{
+    width:75px;
+    height:75px;
+    margin:auto;
+    margin-bottom:18px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#e9faef;
+    color:#16a34a;
+    font-size:45px;
+    font-weight:bold;
+}
+
+.success h2{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.success p{
+    color:#6d7488;
+}
+
+.summary{
+    max-width:600px;
+    margin:25px auto;
+    padding:20px;
+    text-align:left;
+    line-height:1.9;
+    border-radius:15px;
+    background:#f8f9fc;
+    border:1px solid #dfe3eb;
+    color:#424a60;
+}
+
+/* Mobile */
+
+@media(max-width:700px){
+
+    body{
+        padding:12px;
+    }
+
+    .header{
+        padding:24px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .content{
+        padding:24px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    h1{
+        font-size:29px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+}
 </style>
 </head>
+
 <body>
-<div class="shell"><div class="card">
-<header class="top"><div class="brand"><div class="logo">N</div><div><h1>NovaForm</h1><p>Smart • Secure • Responsive</p></div></div>
-<div class="progress"><div class="step active" id="p1"><div class="circle">1</div><span>Personal</span></div><div class="line" id="l1"></div><div class="step" id="p2"><div class="circle">2</div><span>Account</span></div><div class="line" id="l2"></div><div class="step" id="p3"><div class="circle">3</div><span>Skills</span></div><div class="line" id="l3"></div><div class="step" id="p4"><div class="circle">4</div><span>Review</span></div></div></header>
-<main class="content">
-<section class="page active" id="s1"><div class="heading"><h2>Create your profile</h2><p>Start with your basic information.</p></div><div class="grid">
-<div><label>Full Name *</label><input id="name" placeholder="Enter your full name"><div class="error" id="e-name"></div></div>
-<div><label>Email *</label><input id="email" type="email" placeholder="you@example.com"><div class="error" id="e-email"></div></div>
-<div><label>Phone *</label><input id="phone" maxlength="10" placeholder="10 digit number"><div class="error" id="e-phone"></div></div>
-<div><label>Country</label><select id="country"><option>India</option><option>United Arab Emirates</option><option>United States</option><option>United Kingdom</option><option>Other</option></select></div>
-<div class="full"><label>About You</label><textarea id="about" maxlength="300" placeholder="Tell us a little about yourself..."></textarea></div></div>
-<div class="actions"><span></span><button class="primary" onclick="nextStep()">Continue →</button></div></section>
 
-<section class="page" id="s2"><div class="heading"><h2>Set up your account</h2><p>Choose your account type and secure it with a password.</p></div><label>Account Type *</label>
-<div class="cards"><div class="choice selected" data-account="Student" onclick="selectAccount(this)"><b>🎓 Student</b><span>For learning and projects</span></div><div class="choice" data-account="Professional" onclick="selectAccount(this)"><b>💼 Professional</b><span>For work and career</span></div><div class="choice" data-account="Business" onclick="selectAccount(this)"><b>🚀 Business</b><span>For business use</span></div></div>
-<div class="grid"><div><label>Password *</label><div class="password"><input id="password" type="password" placeholder="Create password" oninput="passwordStrength()"><button type="button" class="toggle" onclick="togglePass()">Show</button></div><div class="strength"><i id="bar"></i></div><div class="error" id="e-pass"></div></div><div><label>Confirm Password *</label><input id="confirm" type="password" placeholder="Repeat password"><div class="error" id="e-confirm"></div></div></div>
-<div class="actions"><button class="secondary" onclick="prevStep()">← Back</button><button class="primary" onclick="nextStep()">Continue →</button></div></section>
+<div class="container">
 
-<section class="page" id="s3"><div class="heading"><h2>Your interests</h2><p>Select skills and optionally add a profile photo.</p></div><label>Skills / Interests</label>
-<div class="skills"><div class="skill" onclick="this.classList.toggle('selected')">Python</div><div class="skill" onclick="this.classList.toggle('selected')">Data Analytics</div><div class="skill" onclick="this.classList.toggle('selected')">HTML & CSS</div><div class="skill" onclick="this.classList.toggle('selected')">JavaScript</div><div class="skill" onclick="this.classList.toggle('selected')">Excel</div><div class="skill" onclick="this.classList.toggle('selected')">UI/UX</div><div class="skill" onclick="this.classList.toggle('selected')">Web Development</div><div class="skill" onclick="this.classList.toggle('selected')">Problem Solving</div></div><br>
-<label>Profile Photo</label><label class="upload"><input id="photo" type="file" accept="image/*" hidden onchange="previewPhoto(event)"><img id="photoPreview"><strong>Click to upload a profile photo</strong><span>JPG, PNG or WEBP</span></label>
-<label class="terms"><input id="terms" type="checkbox"><span>I agree to the terms and confirm that the information provided is correct.</span></label><div class="error" id="e-terms"></div>
-<div class="actions"><button class="secondary" onclick="prevStep()">← Back</button><button class="primary" onclick="nextStep()">Review →</button></div></section>
+<div class="card">
 
-<section class="page" id="s4"><div class="heading"><h2>Review details</h2><p>Check your information before submitting.</p></div><div class="review" id="review"></div><div class="actions"><button class="secondary" onclick="prevStep()">← Edit</button><button class="primary" onclick="submitForm()">Create Account ✓</button></div></section>
-<section class="page" id="success"><div class="success"><div class="tick">✓</div><h2>Registration Complete</h2><p>Your profile has been created successfully. This is a front-end demo and does not send information to a server.</p><button class="primary" onclick="location.reload()">Create Another</button></div></section>
-</main></div></div>
+<header class="header">
+
+<div class="logo">
+    NOVA<span>FORM</span>
+</div>
+
+<div class="badge">
+    ADVANCED REGISTRATION SYSTEM
+</div>
+
+</header>
+
+
+<section class="content" id="formSection">
+
+<h1>Create Your Account</h1>
+
+<p class="subtitle">
+    Complete the form to create your account.
+</p>
+
+
+<div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+
+<form id="registrationForm">
+
+<div class="form-grid">
+
+
+<!-- NAME -->
+
+<div class="field">
+
+<label>Full Name *</label>
+
+<input
+    type="text"
+    id="name"
+    placeholder="Enter your full name"
+>
+
+<div class="error" id="nameError">
+    Please enter your name.
+</div>
+
+</div>
+
+
+<!-- EMAIL -->
+
+<div class="field">
+
+<label>Email Address *</label>
+
+<input
+    type="email"
+    id="email"
+    placeholder="you@example.com"
+>
+
+<div class="error" id="emailError">
+    Enter a valid email address.
+</div>
+
+</div>
+
+
+<!-- PHONE -->
+
+<div class="field">
+
+<label>Phone Number *</label>
+
+<input
+    type="text"
+    id="phone"
+    maxlength="10"
+    inputmode="numeric"
+    placeholder="10 digit mobile number"
+>
+
+<div class="error" id="phoneError">
+    Enter a valid 10 digit number.
+</div>
+
+</div>
+
+
+<!-- COUNTRY -->
+
+<div class="field">
+
+<label>Country</label>
+
+<select id="country">
+
+<option value="">
+    Select Country
+</option>
+
+<option>India</option>
+<option>United Arab Emirates</option>
+<option>United States</option>
+<option>United Kingdom</option>
+<option>Canada</option>
+<option>Australia</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<!-- PASSWORD -->
+
+<div class="field">
+
+<label>Password *</label>
+
+<div class="password-box">
+
+<input
+    type="password"
+    id="password"
+    placeholder="Minimum 8 characters"
+>
+
+<button
+    type="button"
+    id="togglePassword"
+>
+Show
+</button>
+
+</div>
+
+<div class="error" id="passwordError">
+    Password must contain at least 8 characters.
+</div>
+
+</div>
+
+
+<!-- ACCOUNT TYPE -->
+
+<div class="field">
+
+<label>Account Type</label>
+
+<select id="accountType">
+
+<option>Student</option>
+<option>Professional</option>
+<option>Business</option>
+<option>Freelancer</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<!-- SKILLS -->
+
+<div class="field full">
+
+<label>
+    Skills / Interests
+</label>
+
+<div class="skills">
+
+<label class="skill">
+<input type="checkbox" value="Web Development">
+Web Development
+</label>
+
+<label class="skill">
+<input type="checkbox" value="Python">
+Python
+</label>
+
+<label class="skill">
+<input type="checkbox" value="Data Analytics">
+Data Analytics
+</label>
+
+<label class="skill">
+<input type="checkbox" value="UI/UX">
+UI/UX
+</label>
+
+<label class="skill">
+<input type="checkbox" value="JavaScript">
+JavaScript
+</label>
+
+</div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<div class="field full">
+
+<label>
+    About You
+</label>
+
+<textarea
+    id="about"
+    maxlength="500"
+    placeholder="Write something about yourself..."
+></textarea>
+
+<small id="counter">
+    0 / 500
+</small>
+
+</div>
+
+
+<!-- FILE -->
+
+<div class="field full">
+
+<label>
+    Upload Profile File
+</label>
+
+<div class="upload">
+
+<input
+    type="file"
+    id="profileFile"
+    accept=".pdf,.jpg,.jpeg,.png"
+>
+
+</div>
+
+</div>
+
+
+<!-- TERMS -->
+
+<div class="field full">
+
+<label class="terms">
+
+<input
+    type="checkbox"
+    id="terms"
+>
+
+<span>
+I agree to the terms and confirm that the information provided is correct. *
+</span>
+
+</label>
+
+<div class="error" id="termsError">
+    Please accept the terms.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+<button
+    type="button"
+    class="reset-btn"
+    id="resetBtn"
+>
+Reset
+</button>
+
+<button
+    type="submit"
+    class="submit-btn"
+>
+Create Account →
+</button>
+
+</div>
+
+</form>
+
+</section>
+
+
+<!-- SUCCESS SECTION -->
+
+<section
+    class="success"
+    id="successSection"
+>
+
+<div class="success-icon">
+✓
+</div>
+
+<h2>
+Registration Successful
+</h2>
+
+<p>
+Your information has been successfully validated.
+</p>
+
+<div
+    class="summary"
+    id="summary"
+></div>
+
+<button
+    class="submit-btn"
+    id="againBtn"
+>
+Register Another Account
+</button>
+
+</section>
+
+</div>
+
+</div>
+
+
 <script>
-let currentStep=1,account="Student";
-function showStep(n){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("s"+n).classList.add("active");for(let i=1;i<=4;i++){let p=document.getElementById("p"+i);p.classList.toggle("active",i===n);p.classList.toggle("done",i<n);if(i<4)document.getElementById("l"+i).classList.toggle("active",i<n)}currentStep=n;scrollTo({top:0,behavior:"smooth"})}
-function clearErrors(){document.querySelectorAll(".error").forEach(e=>e.textContent="")}
-function validateStep(){clearErrors();let ok=true;if(currentStep===1){if(!name.value.trim()){document.getElementById("e-name").textContent="Please enter your name.";ok=false}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){document.getElementById("e-email").textContent="Enter a valid email.";ok=false}if(!/^\d{10}$/.test(phone.value.trim())){document.getElementById("e-phone").textContent="Enter a valid 10 digit phone number.";ok=false}}if(currentStep===2){if(password.value.length<8){document.getElementById("e-pass").textContent="Use at least 8 characters.";ok=false}if(confirm.value!==password.value){document.getElementById("e-confirm").textContent="Passwords do not match.";ok=false}}if(currentStep===3&&!terms.checked){document.getElementById("e-terms").textContent="Please accept the terms.";ok=false}return ok}
-function nextStep(){if(!validateStep())return;if(currentStep===3)createReview();showStep(currentStep+1)}function prevStep(){if(currentStep>1)showStep(currentStep-1)}
-function selectAccount(el){document.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));el.classList.add("selected");account=el.dataset.account}
-function togglePass(){let x=password,b=document.querySelector(".toggle");x.type=x.type==="password"?"text":"password";b.textContent=x.type==="password"?"Show":"Hide"}
-function passwordStrength(){let v=password.value,s=0;if(v.length>=8)s++;if(/[A-Z]/.test(v))s++;if(/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;bar.style.width=(s*25)+"%"}
-function previewPhoto(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{photoPreview.src=r.result;photoPreview.style.display="block"};r.readAsDataURL(f)}
-function safe(v){return v?String(v).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m])):"—"}
-function createReview(){let skills=[...document.querySelectorAll(".skill.selected")].map(x=>x.textContent).join(", ");review.innerHTML=`<div class="review-item"><small>Full Name</small><b>${safe(name.value)}</b></div><div class="review-item"><small>Email</small><b>${safe(email.value)}</b></div><div class="review-item"><small>Phone</small><b>${safe(phone.value)}</b></div><div class="review-item"><small>Country</small><b>${safe(country.value)}</b></div><div class="review-item"><small>Account</small><b>${safe(account)}</b></div><div class="review-item"><small>Skills</small><b>${safe(skills||"None selected")}</b></div><div class="review-item full"><small>About</small><b>${safe(about.value)}</b></div>`}
-function submitForm(){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("success").classList.add("active");document.querySelector(".progress").style.opacity=".35"}
+
+/* Short Selector */
+
+const $ = id =>
+document.getElementById(id);
+
+
+/* Progress */
+
+function updateProgress(){
+
+    let completed = 0;
+
+    if($("name").value.trim())
+        completed++;
+
+    if(
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        .test($("email").value.trim())
+    )
+        completed++;
+
+    if(
+        /^\d{10}$/
+        .test(
+            $("phone").value.replace(/\D/g,"")
+        )
+    )
+        completed++;
+
+    if($("password").value.length >= 8)
+        completed++;
+
+    if($("country").value)
+        completed++;
+
+    if($("about").value.trim())
+        completed++;
+
+    if($("terms").checked)
+        completed++;
+
+    $("progressBar").style.width =
+        (completed / 7 * 100) + "%";
+}
+
+
+/* Input Events */
+
+[
+    "name",
+    "email",
+    "phone",
+    "password",
+    "country",
+    "about"
+].forEach(id => {
+
+    $(id).addEventListener(
+        "input",
+        updateProgress
+    );
+
+    $(id).addEventListener(
+        "change",
+        updateProgress
+    );
+
+});
+
+
+$("terms").addEventListener(
+    "change",
+    updateProgress
+);
+
+
+/* Character Counter */
+
+$("about").addEventListener(
+    "input",
+    function(){
+
+        $("counter").textContent =
+            this.value.length +
+            " / 500";
+
+    }
+);
+
+
+/* Password Show / Hide */
+
+$("togglePassword").addEventListener(
+    "click",
+    function(){
+
+        if($("password").type === "password"){
+
+            $("password").type = "text";
+
+            this.textContent = "Hide";
+
+        }else{
+
+            $("password").type = "password";
+
+            this.textContent = "Show";
+
+        }
+
+    }
+);
+
+
+/* Error Function */
+
+function showError(id,show){
+
+    $(id).style.display =
+        show ? "block" : "none";
+
+}
+
+
+/* Form Submit */
+
+$("registrationForm").addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const name =
+            $("name").value.trim();
+
+        const email =
+            $("email").value.trim();
+
+        const phone =
+            $("phone").value.replace(/\D/g,"");
+
+        const password =
+            $("password").value;
+
+
+        const validName =
+            name.length > 0;
+
+        const validEmail =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            .test(email);
+
+        const validPhone =
+            /^\d{10}$/.test(phone);
+
+        const validPassword =
+            password.length >= 8;
+
+        const validTerms =
+            $("terms").checked;
+
+
+        showError(
+            "nameError",
+            !validName
+        );
+
+        showError(
+            "emailError",
+            !validEmail
+        );
+
+        showError(
+            "phoneError",
+            !validPhone
+        );
+
+        showError(
+            "passwordError",
+            !validPassword
+        );
+
+        showError(
+            "termsError",
+            !validTerms
+        );
+
+
+        if(
+            !validName ||
+            !validEmail ||
+            !validPhone ||
+            !validPassword ||
+            !validTerms
+        ){
+
+            updateProgress();
+
+            return;
+        }
+
+
+        /* Selected Skills */
+
+        const selectedSkills =
+            [...document.querySelectorAll(
+                ".skill input:checked"
+            )].map(
+                checkbox => checkbox.value
+            );
+
+
+        /* File */
+
+        const file =
+            $("profileFile").files[0];
+
+
+        /* Summary */
+
+        $("summary").innerHTML = `
+
+            <b>Name:</b>
+            ${name}
+
+            <br>
+
+            <b>Email:</b>
+            ${email}
+
+            <br>
+
+            <b>Phone:</b>
+            ${phone}
+
+            <br>
+
+            <b>Country:</b>
+            ${$("country").value || "Not selected"}
+
+            <br>
+
+            <b>Account Type:</b>
+            ${$("accountType").value}
+
+            <br>
+
+            <b>Skills:</b>
+            ${
+                selectedSkills.length
+                ? selectedSkills.join(", ")
+                : "None"
+            }
+
+            <br>
+
+            <b>File:</b>
+            ${
+                file
+                ? file.name
+                : "None"
+            }
+
+        `;
+
+
+        /* Show Success */
+
+        $("formSection").style.display =
+            "none";
+
+        $("successSection").style.display =
+            "block";
+
+    }
+);
+
+
+/* Reset */
+
+function resetForm(){
+
+    $("registrationForm").reset();
+
+    document
+        .querySelectorAll(".error")
+        .forEach(error =>
+            error.style.display = "none"
+        );
+
+    $("counter").textContent =
+        "0 / 500";
+
+    $("togglePassword").textContent =
+        "Show";
+
+    $("password").type =
+        "password";
+
+    updateProgress();
+}
+
+
+$("resetBtn").addEventListener(
+    "click",
+    resetForm
+);
+
+
+/* Again */
+
+$("againBtn").addEventListener(
+    "click",
+    function(){
+
+        resetForm();
+
+        $("successSection").style.display =
+            "none";
+
+        $("formSection").style.display =
+            "block";
+
+    }
+);
+
+
+/* Initial */
+
+updateProgress();
+
 </script>
-</body></html>
+
+</body>
+</html>
