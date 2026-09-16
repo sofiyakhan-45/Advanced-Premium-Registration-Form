@@ -1,1061 +1,808 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NovaForm - Advanced Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <title>Course Enrollment</title>
 
-body{
-    font-family:Segoe UI,Arial,sans-serif;
-    min-height:100vh;
-    padding:30px;
-    background:#f4f7fb;
-    color:#182033;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-/* Background */
-body::before,
-body::after{
-    content:"";
-    position:fixed;
-    width:400px;
-    height:400px;
-    border-radius:50%;
-    filter:blur(100px);
-    opacity:.15;
-    z-index:-1;
-}
+        body {
+            background: #f6f4fb;
+            color: #222;
+            padding: 35px 15px;
+        }
 
-body::before{
-    background:#ff3158;
-    top:-150px;
-    left:-100px;
-}
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
 
-body::after{
-    background:#7657ff;
-    right:-130px;
-    bottom:-150px;
-}
+        /* Header */
 
-.container{
-    max-width:1050px;
-    margin:auto;
-}
+        .header {
+            background: linear-gradient(135deg, #7b2ff7, #e91e63);
+            color: white;
+            padding: 35px;
+            border-radius: 20px 20px 0 0;
+        }
 
-.card{
-    background:rgba(255,255,255,.94);
-    border:1px solid #e1e5ed;
-    border-radius:28px;
-    box-shadow:0 25px 70px rgba(30,40,70,.14);
-    overflow:hidden;
-}
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
 
-/* Header */
+        .header p {
+            font-size: 15px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
 
-.header{
-    padding:28px 38px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #e7eaf0;
-}
+        .form-box {
+            background: white;
+            padding: 35px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 35px rgba(50, 30, 80, 0.12);
+        }
 
-.logo{
-    font-size:27px;
-    font-weight:800;
-    letter-spacing:1px;
-}
+        /* Sections */
 
-.logo span{
-    color:#ff3158;
-}
+        .section {
+            margin-bottom: 35px;
+        }
 
-.badge{
-    border:1px solid #dfe3eb;
-    color:#697188;
-    padding:8px 14px;
-    border-radius:30px;
-    font-size:12px;
-    font-weight:600;
-}
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
 
-/* Content */
+        .number {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7b2ff7, #e91e63);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
 
-.content{
-    padding:38px;
-}
+        .section-title h2 {
+            font-size: 20px;
+        }
 
-h1{
-    font-size:38px;
-    margin-bottom:8px;
-}
+        /* Form Grid */
 
-.subtitle{
-    color:#6d7488;
-    margin-bottom:28px;
-}
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
 
-/* Progress */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
 
-.progress{
-    width:100%;
-    height:7px;
-    background:#e7eaf1;
-    border-radius:20px;
-    overflow:hidden;
-    margin-bottom:30px;
-}
+        .full {
+            grid-column: 1 / -1;
+        }
 
-.progress-bar{
-    width:0%;
-    height:100%;
-    background:linear-gradient(90deg,#ff1744,#7657ff);
-    transition:.3s;
-}
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
 
-/* Form */
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #dcd9e5;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            background: #fff;
+            transition: 0.3s;
+        }
 
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #7b2ff7;
+            box-shadow: 0 0 0 3px rgba(123, 47, 247, 0.08);
+        }
 
-.full{
-    grid-column:1/-1;
-}
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
 
-.field label{
-    display:block;
-    font-size:13px;
-    font-weight:600;
-    color:#424a5e;
-    margin-bottom:8px;
-}
+        input[type="file"] {
+            padding: 11px;
+            background: #faf9fd;
+        }
 
-input,
-select,
-textarea{
-    width:100%;
-    padding:14px 15px;
-    border:1px solid #d9dde7;
-    border-radius:13px;
-    background:#fff;
-    color:#182033;
-    font-size:14px;
-    outline:none;
-    transition:.2s;
-}
+        /* Course Cards */
 
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:#ff3158;
-    box-shadow:0 0 0 4px rgba(255,49,88,.1);
-}
+        .course-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
 
-textarea{
-    min-height:130px;
-    resize:vertical;
-}
+        .course-card {
+            border: 1px solid #e1deea;
+            border-radius: 12px;
+            padding: 18px;
+            background: #faf9fd;
+        }
 
-input::placeholder,
-textarea::placeholder{
-    color:#a0a6b5;
-}
+        .course-card input {
+            width: auto;
+            margin-right: 8px;
+        }
 
-/* Password */
+        .course-card label {
+            cursor: pointer;
+            color: #333;
+        }
 
-.password-box{
-    position:relative;
-}
+        .course-card:hover {
+            border-color: #7b2ff7;
+        }
 
-.password-box button{
-    position:absolute;
-    right:7px;
-    top:7px;
-    border:0;
-    background:#eef1f6;
-    color:#41495e;
-    padding:8px 11px;
-    border-radius:9px;
-    cursor:pointer;
-}
+        /* Radio */
 
-/* Skills */
+        .radio-group {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding-top: 5px;
+        }
 
-.skills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
+        .radio-group label {
+            font-weight: normal;
+        }
 
-.skill{
-    display:flex!important;
-    align-items:center;
-    gap:7px;
-    width:auto!important;
-    margin:0!important;
-    padding:11px 14px;
-    border:1px solid #d9dde7;
-    border-radius:12px;
-    background:white;
-    cursor:pointer;
-    font-weight:500!important;
-    transition:.2s;
-}
+        .radio-group input {
+            width: auto;
+            margin-right: 6px;
+        }
 
-.skill:hover{
-    border-color:#ff3158;
-    transform:translateY(-2px);
-}
+        /* Skills */
 
-.skill input{
-    width:auto;
-}
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-/* Upload */
+        .skills label {
+            border: 1px solid #ddd8e8;
+            padding: 10px 14px;
+            border-radius: 20px;
+            font-weight: normal;
+            cursor: pointer;
+            background: #faf9fd;
+        }
 
-.upload{
-    padding:22px;
-    border:1px dashed #b8bfce;
-    border-radius:15px;
-    background:#fafbfc;
-    text-align:center;
-}
+        .skills input {
+            width: auto;
+            margin-right: 5px;
+        }
 
-/* Error */
+        /* Terms */
 
-.error{
-    display:none;
-    color:#e11d48;
-    font-size:12px;
-    margin-top:6px;
-}
+        .terms {
+            background: #f8f6fc;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
 
-/* Terms */
+        .terms label {
+            font-weight: normal;
+            line-height: 1.6;
+        }
 
-.terms{
-    display:flex!important;
-    align-items:flex-start;
-    gap:8px;
-    padding:13px;
-    border:1px solid #e0e4ec;
-    border-radius:12px;
-    background:#fafbfc;
-    cursor:pointer;
-}
+        .terms input {
+            width: auto;
+            margin-right: 8px;
+        }
 
-.terms input{
-    width:auto;
-    margin-top:3px;
-}
+        /* Button */
 
-/* Buttons */
+        .submit-area {
+            text-align: center;
+        }
 
-.buttons{
-    display:flex;
-    gap:12px;
-    margin-top:28px;
-}
+        .submit-btn {
+            border: none;
+            padding: 15px 45px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #7b2ff7, #e91e63);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(123, 47, 247, 0.25);
+            transition: 0.3s;
+        }
 
-button{
-    font-family:inherit;
-}
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(123, 47, 247, 0.3);
+        }
 
-.reset-btn{
-    border:0;
-    background:#eef0f5;
-    color:#424a60;
-    padding:14px 22px;
-    border-radius:13px;
-    font-weight:700;
-    cursor:pointer;
-}
+        .note {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #777;
+        }
 
-.submit-btn{
-    flex:1;
-    border:0;
-    background:linear-gradient(90deg,#ff1744,#ff4269);
-    color:white;
-    padding:14px 22px;
-    border-radius:13px;
-    font-weight:700;
-    cursor:pointer;
-    box-shadow:0 10px 25px rgba(255,49,88,.22);
-    transition:.2s;
-}
+        /* Footer */
 
-.submit-btn:hover{
-    transform:translateY(-2px);
-}
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #777;
+            font-size: 13px;
+        }
 
-/* Success */
+        /* Mobile */
 
-.success{
-    display:none;
-    text-align:center;
-    padding:55px 25px;
-}
+        @media (max-width: 750px) {
 
-.success-icon{
-    width:75px;
-    height:75px;
-    margin:auto;
-    margin-bottom:18px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#e9faef;
-    color:#16a34a;
-    font-size:45px;
-    font-weight:bold;
-}
+            body {
+                padding: 15px;
+            }
 
-.success h2{
-    font-size:30px;
-    margin-bottom:8px;
-}
+            .header {
+                padding: 25px 20px;
+            }
 
-.success p{
-    color:#6d7488;
-}
+            .header h1 {
+                font-size: 25px;
+            }
 
-.summary{
-    max-width:600px;
-    margin:25px auto;
-    padding:20px;
-    text-align:left;
-    line-height:1.9;
-    border-radius:15px;
-    background:#f8f9fc;
-    border:1px solid #dfe3eb;
-    color:#424a60;
-}
+            .form-box {
+                padding: 25px 20px;
+            }
 
-/* Mobile */
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
 
-@media(max-width:700px){
+            .full {
+                grid-column: auto;
+            }
 
-    body{
-        padding:12px;
-    }
-
-    .header{
-        padding:24px;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
-    }
-
-    .content{
-        padding:24px;
-    }
-
-    .form-grid{
-        grid-template-columns:1fr;
-    }
-
-    .full{
-        grid-column:auto;
-    }
-
-    h1{
-        font-size:29px;
-    }
-
-    .buttons{
-        flex-direction:column;
-    }
-}
-</style>
+            .course-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="card">
+    <!-- Header -->
+
+    <div class="header">
+        <h1>Course Enrollment</h1>
+        <p>
+            Start your learning journey by choosing the right course,
+            sharing your academic details and selecting your preferred
+            learning options.
+        </p>
+    </div>
+
+
+    <form class="form-box">
+
+        <!-- Student Details -->
+
+        <div class="section">
+
+            <div class="section-title">
+                <div class="number">1</div>
+                <h2>Student Details</h2>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@email.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mobile Number</label>
+                    <input type="tel"
+                           placeholder="Enter mobile number"
+                           pattern="[0-9]{10}"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <label>Date of Birth</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select required>
+                        <option value="">Select Gender</option>
+                        <option>Female</option>
+                        <option>Male</option>
+                        <option>Other</option>
+                        <option>Prefer not to say</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>City / State</label>
+                    <input type="text" placeholder="Enter your city and state" required>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Education -->
+
+        <div class="section">
+
+            <div class="section-title">
+                <div class="number">2</div>
+                <h2>Education Details</h2>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Highest Qualification</label>
+                    <select required>
+                        <option value="">Select Qualification</option>
+                        <option>10th</option>
+                        <option>12th</option>
+                        <option>Diploma</option>
+                        <option>Undergraduate</option>
+                        <option>Postgraduate</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>College / School Name</label>
+                    <input type="text"
+                           placeholder="Enter institute name"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <label>Course / Degree</label>
+                    <input type="text"
+                           placeholder="Example: B.Tech CSE"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <label>Current Year / Semester</label>
+                    <select required>
+                        <option value="">Select</option>
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                        <option>Completed</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Course Selection -->
+
+        <div class="section">
+
+            <div class="section-title">
+                <div class="number">3</div>
+                <h2>Choose Your Course</h2>
+            </div>
+
+            <div class="course-options">
 
-<header class="header">
+                <div class="course-card">
+                    <label>
+                        <input type="radio" name="course" required>
+                        Data Analytics
+                    </label>
+                </div>
+
+                <div class="course-card">
+                    <label>
+                        <input type="radio" name="course">
+                        Web Development
+                    </label>
+                </div>
 
-<div class="logo">
-    NOVA<span>FORM</span>
-</div>
+                <div class="course-card">
+                    <label>
+                        <input type="radio" name="course">
+                        Python Programming
+                    </label>
+                </div>
 
-<div class="badge">
-    ADVANCED REGISTRATION SYSTEM
-</div>
+                <div class="course-card">
+                    <label>
+                        <input type="radio" name="course">
+                        AI & Machine Learning
+                    </label>
+                </div>
 
-</header>
+                <div class="course-card">
+                    <label>
+                        <input type="radio" name="course">
+                        Cyber Security
+                    </label>
+                </div>
 
+                <div class="course-card">
+                    <label>
+                        <input type="radio" name="course">
+                        Digital Marketing
+                    </label>
+                </div>
 
-<section class="content" id="formSection">
+            </div>
+        </div>
 
-<h1>Create Your Account</h1>
 
-<p class="subtitle">
-    Complete the form to create your account.
-</p>
+        <!-- Learning Preferences -->
 
+        <div class="section">
 
-<div class="progress">
-    <div class="progress-bar" id="progressBar"></div>
-</div>
+            <div class="section-title">
+                <div class="number">4</div>
+                <h2>Learning Preferences</h2>
+            </div>
 
+            <div class="form-grid">
 
-<form id="registrationForm">
+                <div class="input-group">
+                    <label>Learning Mode</label>
 
-<div class="form-grid">
+                    <div class="radio-group">
 
+                        <label>
+                            <input type="radio" name="mode" required>
+                            Online
+                        </label>
 
-<!-- NAME -->
+                        <label>
+                            <input type="radio" name="mode">
+                            Offline
+                        </label>
 
-<div class="field">
+                        <label>
+                            <input type="radio" name="mode">
+                            Hybrid
+                        </label>
 
-<label>Full Name *</label>
+                    </div>
+                </div>
 
-<input
-    type="text"
-    id="name"
-    placeholder="Enter your full name"
->
 
-<div class="error" id="nameError">
-    Please enter your name.
-</div>
+                <div class="input-group">
 
-</div>
+                    <label>Preferred Batch</label>
 
+                    <select required>
+                        <option value="">Select Batch</option>
+                        <option>Morning</option>
+                        <option>Afternoon</option>
+                        <option>Evening</option>
+                        <option>Weekend</option>
+                    </select>
 
-<!-- EMAIL -->
+                </div>
 
-<div class="field">
 
-<label>Email Address *</label>
+                <div class="input-group">
 
-<input
-    type="email"
-    id="email"
-    placeholder="you@example.com"
->
+                    <label>Course Duration</label>
 
-<div class="error" id="emailError">
-    Enter a valid email address.
-</div>
+                    <select required>
+                        <option value="">Select Duration</option>
+                        <option>1 Month</option>
+                        <option>3 Months</option>
+                        <option>6 Months</option>
+                        <option>1 Year</option>
+                    </select>
 
-</div>
+                </div>
 
+            </div>
 
-<!-- PHONE -->
+        </div>
 
-<div class="field">
 
-<label>Phone Number *</label>
+        <!-- Skills -->
 
-<input
-    type="text"
-    id="phone"
-    maxlength="10"
-    inputmode="numeric"
-    placeholder="10 digit mobile number"
->
+        <div class="section">
 
-<div class="error" id="phoneError">
-    Enter a valid 10 digit number.
-</div>
+            <div class="section-title">
+                <div class="number">5</div>
+                <h2>Skills & Experience</h2>
+            </div>
 
-</div>
+            <div class="input-group">
 
+                <label>Select Your Current Skills</label>
 
-<!-- COUNTRY -->
+                <div class="skills">
 
-<div class="field">
+                    <label>
+                        <input type="checkbox">
+                        Python
+                    </label>
 
-<label>Country</label>
+                    <label>
+                        <input type="checkbox">
+                        HTML/CSS
+                    </label>
 
-<select id="country">
+                    <label>
+                        <input type="checkbox">
+                        JavaScript
+                    </label>
 
-<option value="">
-    Select Country
-</option>
+                    <label>
+                        <input type="checkbox">
+                        Excel
+                    </label>
 
-<option>India</option>
-<option>United Arab Emirates</option>
-<option>United States</option>
-<option>United Kingdom</option>
-<option>Canada</option>
-<option>Australia</option>
-<option>Other</option>
+                    <label>
+                        <input type="checkbox">
+                        SQL
+                    </label>
 
-</select>
+                    <label>
+                        <input type="checkbox">
+                        C / C++
+                    </label>
 
-</div>
+                    <label>
+                        <input type="checkbox">
+                        Other
+                    </label>
 
+                </div>
 
-<!-- PASSWORD -->
-
-<div class="field">
-
-<label>Password *</label>
-
-<div class="password-box">
-
-<input
-    type="password"
-    id="password"
-    placeholder="Minimum 8 characters"
->
-
-<button
-    type="button"
-    id="togglePassword"
->
-Show
-</button>
-
-</div>
-
-<div class="error" id="passwordError">
-    Password must contain at least 8 characters.
-</div>
-
-</div>
-
-
-<!-- ACCOUNT TYPE -->
-
-<div class="field">
-
-<label>Account Type</label>
-
-<select id="accountType">
-
-<option>Student</option>
-<option>Professional</option>
-<option>Business</option>
-<option>Freelancer</option>
-<option>Other</option>
-
-</select>
-
-</div>
-
-
-<!-- SKILLS -->
-
-<div class="field full">
-
-<label>
-    Skills / Interests
-</label>
-
-<div class="skills">
-
-<label class="skill">
-<input type="checkbox" value="Web Development">
-Web Development
-</label>
-
-<label class="skill">
-<input type="checkbox" value="Python">
-Python
-</label>
-
-<label class="skill">
-<input type="checkbox" value="Data Analytics">
-Data Analytics
-</label>
-
-<label class="skill">
-<input type="checkbox" value="UI/UX">
-UI/UX
-</label>
-
-<label class="skill">
-<input type="checkbox" value="JavaScript">
-JavaScript
-</label>
-
-</div>
-
-</div>
-
-
-<!-- ABOUT -->
-
-<div class="field full">
-
-<label>
-    About You
-</label>
-
-<textarea
-    id="about"
-    maxlength="500"
-    placeholder="Write something about yourself..."
-></textarea>
-
-<small id="counter">
-    0 / 500
-</small>
-
-</div>
-
-
-<!-- FILE -->
-
-<div class="field full">
-
-<label>
-    Upload Profile File
-</label>
-
-<div class="upload">
-
-<input
-    type="file"
-    id="profileFile"
-    accept=".pdf,.jpg,.jpeg,.png"
->
-
-</div>
-
-</div>
-
-
-<!-- TERMS -->
-
-<div class="field full">
-
-<label class="terms">
-
-<input
-    type="checkbox"
-    id="terms"
->
-
-<span>
-I agree to the terms and confirm that the information provided is correct. *
-</span>
-
-</label>
-
-<div class="error" id="termsError">
-    Please accept the terms.
-</div>
-
-</div>
-
-</div>
-
-
-<div class="buttons">
-
-<button
-    type="button"
-    class="reset-btn"
-    id="resetBtn"
->
-Reset
-</button>
-
-<button
-    type="submit"
-    class="submit-btn"
->
-Create Account →
-</button>
-
-</div>
-
-</form>
-
-</section>
-
-
-<!-- SUCCESS SECTION -->
-
-<section
-    class="success"
-    id="successSection"
->
-
-<div class="success-icon">
-✓
-</div>
-
-<h2>
-Registration Successful
-</h2>
-
-<p>
-Your information has been successfully validated.
-</p>
-
-<div
-    class="summary"
-    id="summary"
-></div>
-
-<button
-    class="submit-btn"
-    id="againBtn"
->
-Register Another Account
-</button>
-
-</section>
-
-</div>
-
-</div>
-
-
-<script>
-
-/* Short Selector */
-
-const $ = id =>
-document.getElementById(id);
-
-
-/* Progress */
-
-function updateProgress(){
-
-    let completed = 0;
-
-    if($("name").value.trim())
-        completed++;
-
-    if(
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        .test($("email").value.trim())
-    )
-        completed++;
-
-    if(
-        /^\d{10}$/
-        .test(
-            $("phone").value.replace(/\D/g,"")
-        )
-    )
-        completed++;
-
-    if($("password").value.length >= 8)
-        completed++;
-
-    if($("country").value)
-        completed++;
-
-    if($("about").value.trim())
-        completed++;
-
-    if($("terms").checked)
-        completed++;
-
-    $("progressBar").style.width =
-        (completed / 7 * 100) + "%";
-}
-
-
-/* Input Events */
-
-[
-    "name",
-    "email",
-    "phone",
-    "password",
-    "country",
-    "about"
-].forEach(id => {
-
-    $(id).addEventListener(
-        "input",
-        updateProgress
-    );
-
-    $(id).addEventListener(
-        "change",
-        updateProgress
-    );
-
-});
-
-
-$("terms").addEventListener(
-    "change",
-    updateProgress
-);
-
-
-/* Character Counter */
-
-$("about").addEventListener(
-    "input",
-    function(){
-
-        $("counter").textContent =
-            this.value.length +
-            " / 500";
-
-    }
-);
-
-
-/* Password Show / Hide */
-
-$("togglePassword").addEventListener(
-    "click",
-    function(){
-
-        if($("password").type === "password"){
-
-            $("password").type = "text";
-
-            this.textContent = "Hide";
-
-        }else{
-
-            $("password").type = "password";
-
-            this.textContent = "Show";
-
-        }
-
-    }
-);
-
-
-/* Error Function */
-
-function showError(id,show){
-
-    $(id).style.display =
-        show ? "block" : "none";
-
-}
-
-
-/* Form Submit */
-
-$("registrationForm").addEventListener(
-    "submit",
-    function(event){
-
-        event.preventDefault();
-
-
-        const name =
-            $("name").value.trim();
-
-        const email =
-            $("email").value.trim();
-
-        const phone =
-            $("phone").value.replace(/\D/g,"");
-
-        const password =
-            $("password").value;
-
-
-        const validName =
-            name.length > 0;
-
-        const validEmail =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-            .test(email);
-
-        const validPhone =
-            /^\d{10}$/.test(phone);
-
-        const validPassword =
-            password.length >= 8;
-
-        const validTerms =
-            $("terms").checked;
-
-
-        showError(
-            "nameError",
-            !validName
-        );
-
-        showError(
-            "emailError",
-            !validEmail
-        );
-
-        showError(
-            "phoneError",
-            !validPhone
-        );
-
-        showError(
-            "passwordError",
-            !validPassword
-        );
-
-        showError(
-            "termsError",
-            !validTerms
-        );
-
-
-        if(
-            !validName ||
-            !validEmail ||
-            !validPhone ||
-            !validPassword ||
-            !validTerms
-        ){
-
-            updateProgress();
-
-            return;
-        }
-
-
-        /* Selected Skills */
-
-        const selectedSkills =
-            [...document.querySelectorAll(
-                ".skill input:checked"
-            )].map(
-                checkbox => checkbox.value
-            );
-
-
-        /* File */
-
-        const file =
-            $("profileFile").files[0];
-
-
-        /* Summary */
-
-        $("summary").innerHTML = `
-
-            <b>Name:</b>
-            ${name}
+            </div>
 
             <br>
 
-            <b>Email:</b>
-            ${email}
+            <div class="input-group">
 
-            <br>
+                <label>Experience Level</label>
 
-            <b>Phone:</b>
-            ${phone}
+                <div class="radio-group">
 
-            <br>
+                    <label>
+                        <input type="radio" name="experience" required>
+                        Beginner
+                    </label>
 
-            <b>Country:</b>
-            ${$("country").value || "Not selected"}
+                    <label>
+                        <input type="radio" name="experience">
+                        Intermediate
+                    </label>
 
-            <br>
+                    <label>
+                        <input type="radio" name="experience">
+                        Advanced
+                    </label>
 
-            <b>Account Type:</b>
-            ${$("accountType").value}
+                </div>
 
-            <br>
+            </div>
 
-            <b>Skills:</b>
-            ${
-                selectedSkills.length
-                ? selectedSkills.join(", ")
-                : "None"
-            }
-
-            <br>
-
-            <b>File:</b>
-            ${
-                file
-                ? file.name
-                : "None"
-            }
-
-        `;
+        </div>
 
 
-        /* Show Success */
+        <!-- Career Goal -->
 
-        $("formSection").style.display =
-            "none";
+        <div class="section">
 
-        $("successSection").style.display =
-            "block";
+            <div class="section-title">
+                <div class="number">6</div>
+                <h2>Your Learning Goal</h2>
+            </div>
 
-    }
-);
+            <div class="form-grid">
 
+                <div class="input-group full">
 
-/* Reset */
+                    <label>Why do you want to join this course?</label>
 
-function resetForm(){
+                    <textarea
+                        placeholder="Tell us about your reason for joining this course..."
+                        required></textarea>
 
-    $("registrationForm").reset();
+                </div>
 
-    document
-        .querySelectorAll(".error")
-        .forEach(error =>
-            error.style.display = "none"
-        );
+                <div class="input-group">
 
-    $("counter").textContent =
-        "0 / 500";
+                    <label>Career Goal</label>
 
-    $("togglePassword").textContent =
-        "Show";
+                    <select required>
+                        <option value="">Select Career Goal</option>
+                        <option>Get a Job</option>
+                        <option>Improve Skills</option>
+                        <option>Career Change</option>
+                        <option>Start Freelancing</option>
+                        <option>Higher Studies</option>
+                        <option>Personal Learning</option>
+                    </select>
 
-    $("password").type =
-        "password";
+                </div>
 
-    updateProgress();
-}
+                <div class="input-group">
 
+                    <label>Expected Start Date</label>
 
-$("resetBtn").addEventListener(
-    "click",
-    resetForm
-);
+                    <input type="date" required>
 
+                </div>
 
-/* Again */
-
-$("againBtn").addEventListener(
-    "click",
-    function(){
-
-        resetForm();
-
-        $("successSection").style.display =
-            "none";
-
-        $("formSection").style.display =
-            "block";
-
-    }
-);
+            </div>
+        </div>
 
 
-/* Initial */
+        <!-- Documents -->
 
-updateProgress();
+        <div class="section">
 
-</script>
+            <div class="section-title">
+                <div class="number">7</div>
+                <h2>Documents & Links</h2>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+
+                    <label>Upload Resume</label>
+
+                    <input type="file"
+                           accept=".pdf,.doc,.docx">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Portfolio / GitHub Link</label>
+
+                    <input type="url"
+                           placeholder="https://github.com/yourusername">
+
+                </div>
+
+                <div class="input-group full">
+
+                    <label>LinkedIn Profile</label>
+
+                    <input type="url"
+                           placeholder="https://linkedin.com/in/yourprofile">
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Payment -->
+
+        <div class="section">
+
+            <div class="section-title">
+                <div class="number">8</div>
+                <h2>Enrollment Preference</h2>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+
+                    <label>Payment Preference</label>
+
+                    <select required>
+
+                        <option value="">Select Payment Option</option>
+                        <option>Full Payment</option>
+                        <option>Installments</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Referral / Coupon Code</label>
+
+                    <input type="text"
+                           placeholder="Enter code if available">
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Terms -->
+
+        <div class="terms">
+
+            <label>
+
+                <input type="checkbox" required>
+
+                I confirm that the information provided by me is
+                correct and I agree to the course enrollment terms
+                and conditions.
+
+            </label>
+
+        </div>
+
+
+        <!-- Submit -->
+
+        <div class="submit-area">
+
+            <button type="submit" class="submit-btn">
+                Submit Enrollment
+            </button>
+
+            <p class="note">
+                Your enrollment details will be reviewed by the course team.
+            </p>
+
+        </div>
+
+    </form>
+
+
+    <div class="footer">
+        © 2026 Course Enrollment Portal · Learn. Build. Grow.
+    </div>
+
+</div>
 
 </body>
 </html>
