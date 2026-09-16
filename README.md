@@ -7,18 +7,18 @@ A simple and modern Course Enrollment Form designed for students who want to enr
 This project is a course enrollment form where students can enter their personal details, education information, select a course, choose their learning preferences, and provide their skills and career goals.
 
 ✨ Features
-Student Personal Details
-Education Details
-Course Selection
-Learning Mode Selection
-Batch & Duration Selection
-Skills & Experience
-Career Goals
-Resume Upload
-GitHub & LinkedIn Links
-Payment Preference
-Terms & Confirmation
-Responsive Design
+ Student Personal Details
+ Education Details
+ Course Selection
+ Learning Mode Selection
+ Batch & Duration Selection
+ Skills & Experience
+ Career Goals
+ Resume Upload
+ GitHub & LinkedIn Links
+ Payment Preference
+ Terms & Confirmation
+ Responsive Design
 
 📚 Courses Available
 Data Analytics
