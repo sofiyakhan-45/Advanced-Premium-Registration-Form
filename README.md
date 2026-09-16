@@ -53,14 +53,3 @@ I created this project to practice building a real-world course enrollment form 
 
 ---
 
-## Future Improvements
-
-In the future, this form can be connected to a database to store student enrollment details. More interactive features and advanced validation can also be added.
-
----
-
-## Author
-
-Sofiya Asghar Khan
-
-B.Tech CSE Student
