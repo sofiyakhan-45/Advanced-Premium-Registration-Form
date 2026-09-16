@@ -1,32 +1,42 @@
-✨ Registration Form
+🎓 Course Enrollment Form
 
-A modern and responsive registration form that I created using HTML, CSS and JavaScript.
-I wanted to make it more interesting than a normal registration form, so I added multiple steps, validation, profile photo preview and a review section.
+A simple and modern Course Enrollment Form designed for students who want to enroll in a course.
 
-The design is kept clean with a light theme and red-purple color combination, along with smooth transitions and responsive layout for both desktop and mobile.
+📌 About the Project
 
-🌟 Features
-🔹 Multi-step registration process
-👤 Personal information section
-💼 Account type selection
-🔐 Password show/hide option
-📊 Password strength indicator
-🎯 Skills and interests selection
-🖼️ Profile photo upload with preview
-✅ Form validation
-📋 Review details before submission
-🎉 Registration success screen
-📱 Responsive design
-✨ Clean and modern user interface
-🎨 Light theme with red and purple design
-🔄 How It Works
+This project is a course enrollment form where students can enter their personal details, education information, select a course, choose their learning preferences, and provide their skills and career goals.
 
-The form is divided into different steps.
+✨ Features
+Student Personal Details
+Education Details
+Course Selection
+Learning Mode Selection
+Batch & Duration Selection
+Skills & Experience
+Career Goals
+Resume Upload
+GitHub & LinkedIn Links
+Payment Preference
+Terms & Confirmation
+Responsive Design
 
-First, the user enters their personal information. After that, they can select an account type and create their password.
+📚 Courses Available
+Data Analytics
+Web Development
+Python Programming
+AI & Machine Learning
+Cyber Security
+Digital Marketing
 
-In the next step, users can select their skills and interests and upload a profile photo.
+🚀 How to Run
+Download or clone the project.
+Open the project folder in VS Code.
+Open index.html.
+Run it in your browser or use Live Server.
 
-Before submitting, all the entered information is displayed on a review page, where the user can check the details.
+🎯 Purpose of the Project
+I created this project to practice building a real-world course enrollment form where student and course-related information can be collected in one place.
 
-After completing the form, a registration success screen is shown.
+🔮 Future Improvements
+
+In the future, this form can be connected to a database to store student enrollment details. More interactive features and advanced validation can also be added.
